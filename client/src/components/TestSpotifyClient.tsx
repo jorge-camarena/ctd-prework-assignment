@@ -1,14 +1,20 @@
 import SpotifyClient from "../SpotifyClient/client";
+import { AlbumResponse } from "../response_models/AlbumResponse";
+import { PlaylistResponse } from "../response_models/PlaylistResponse";
+interface Props {
+    albums?: AlbumResponse[];
+    playlists?: PlaylistResponse[];
+}
 
-function TestSpotifyClient() {
+function TestSpotifyClient({ albums, playlists }: Props) {
     const client = new SpotifyClient();
 
-    const handleTestAlbumsAPI = async () => {
-        const albums = await client.getSpotifyTopAlbumsAsync();
+    const handleTestAlbumsAPI = () => {
+        // const albums = await client.getSpotifyTopAlbumsAsync();
         console.log(albums);
     };
-    const handleTestPlaylistAPI = async () => {
-        const playlists = await client.getSpotifyTopPlaylistsAsync();
+    const handleTestPlaylistAPI = () => {
+        // const playlists = await client.getSpotifyTopPlaylistsAsync();
         console.log(playlists);
     };
     return (

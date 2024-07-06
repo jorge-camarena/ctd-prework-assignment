@@ -54,23 +54,7 @@ class SpotifyClient {
         return data
     }
 
-    async getPlaylistsByIdAsync(idList) {
-        await this.validateToken()
-        const playlistArray = []
-        idList.forEach(async (id) => {
-            const url = `https://api.spotify.com/v1/playlists/${id}`
-            const response = await fetch(url, {
-                headers: {
-                    Authorization: 'Bearer ' + this.access_token
-                }
-            });
-            const data = await response.json();
-            playlistArray.push(await data)
-        })
-        return playlistArray
-    }
-
-    async getPlaylistById(id) {
+    async getPlaylistByIdAsync(id) {
         await this.validateToken();
         const url = `https://api.spotify.com/v1/playlists/${id}`
         const response = await fetch(url, {
@@ -83,9 +67,9 @@ class SpotifyClient {
         
     }
 
-    async getSpotifyTopAlbumsAsync() {
+    async getSpotifyTopAlbumsAsync(limit=5) {
         await this.validateToken()
-        const url = "https://api.spotify.com/v1/browse/new-releases"
+        const url = `https://api.spotify.com/v1/browse/new-releases?limit=${limit}`
         const response = await fetch(url, {
             headers: {
                 Authorization: 'Bearer ' + this.access_token
@@ -100,7 +84,6 @@ class SpotifyClient {
         const detailedAlbumResponse = await this.getAlbumbsByIdAsync(albumIds)
         const albumArray = await detailedAlbumResponse.albums
         var parsedAlbums = []
-        //Add await if fails
         albumArray.forEach((album) => {
             const albumItem = createAlbum(album)
             parsedAlbums.push(albumItem)
@@ -108,9 +91,9 @@ class SpotifyClient {
         return parsedAlbums
     }
 
-    async getSpotifyTopPlaylistsAsync() {
+    async getSpotifyTopPlaylistsAsync(limit=5) {
         await this.validateToken()
-        const url = "https://api.spotify.com/v1/browse/featured-playlists"
+        const url = `https://api.spotify.com/v1/browse/featured-playlists?limit=${limit}`
         const response = await fetch(url, {
             headers: {
                 Authorization: 'Bearer ' + this.access_token
@@ -120,7 +103,7 @@ class SpotifyClient {
         const playlists = data.playlists.items;
         const detailedPlaylistResponse = []
         for (const playlist of playlists) {
-            const detailedPlayListItem = await this.getPlaylistById(playlist.id)
+            const detailedPlayListItem = await this.getPlaylistByIdAsync(playlist.id)
             detailedPlaylistResponse.push(detailedPlayListItem);
         }
         const parsedPlaylists = []

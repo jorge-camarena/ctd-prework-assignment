@@ -1,6 +1,7 @@
 export function createPlaylist(playlist) {
     const playlistName = playlist.name
     const playListOwner = playlist.owner.display_name
+    const playlistCover = playlist.images[0].url
     const tracksList = []
     const tracksArray = playlist.tracks.items
     
@@ -26,6 +27,7 @@ export function createPlaylist(playlist) {
     return {
         name: playlistName,
         owner: playListOwner,
+        cover: playlistCover,
         tracks: tracksList
     }
 }

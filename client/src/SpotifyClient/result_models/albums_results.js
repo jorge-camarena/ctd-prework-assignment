@@ -2,6 +2,7 @@ export function createAlbum(album) {
     const albumName = album.name
     var tracksList = []
     const tracksArray = album.tracks.items
+    const albumCover = album.images[1].url
     tracksArray.forEach((track) => {
         const trackName = track.name
         var artistsList = []
@@ -18,6 +19,8 @@ export function createAlbum(album) {
     })
     return {
         name: albumName,
+        cover: albumCover,
         tracks: tracksList
+
     }
 }
