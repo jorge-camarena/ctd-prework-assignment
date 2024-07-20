@@ -1,12 +1,32 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
+import logo from "../assets/Spotify_Full_Logo_RGB_Green.png";
 
-function MainNavbar() {
+interface Props {
+    changePage: Function;
+}
+
+function MainNavbar({ changePage }: Props) {
+    const [currentlySelected, setCurrentlySelected] = useState("albums");
+    const handleAlbumClick = () => {
+        changePage("albums");
+        setCurrentlySelected("albums");
+    };
+
+    const handlePlaylistClick = () => {
+        changePage("Playlists");
+        setCurrentlySelected("playlists");
+    };
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">
-                        Spotify
+                    <a
+                        className="navbar-brand"
+                        href="https://open.spotify.com/"
+                        target="_blank"
+                    >
+                        <img src={logo} alt="" height={40} width={150} />
                     </a>
                     <button
                         className="navbar-toggler"
@@ -28,13 +48,35 @@ function MainNavbar() {
                                     href="#"
                                 ></a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">
+                            <li
+                                className={
+                                    "nav-item " +
+                                    (currentlySelected === "albums"
+                                        ? "nav-item-currently-selected"
+                                        : "")
+                                }
+                            >
+                                <a
+                                    className="nav-link"
+                                    href="#"
+                                    onClick={handleAlbumClick}
+                                >
                                     Newly Released Albums
                                 </a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">
+                            <li
+                                className={
+                                    "nav-item " +
+                                    (currentlySelected === "playlists"
+                                        ? "nav-item-currently-selected"
+                                        : "")
+                                }
+                            >
+                                <a
+                                    className="nav-link"
+                                    href="#"
+                                    onClick={handlePlaylistClick}
+                                >
                                     Top Playlists
                                 </a>
                             </li>

@@ -13,17 +13,23 @@ class SpotifyClient {
                 Authorization: 'Bearer ' + this.access_token
             }
         });
+        if (response.status === 400) {
+            console.clear()
+        }
+
         return (response.status === 200)
     }
 
     async getNewToken() {
         const url = "https://accounts.spotify.com/api/token"
+        const id = import.meta.env.VITE_CLIENT_ID
+        const secret = import.meta.env.VITE_CLIENT_SECRET
         const response = await fetch(url, {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: "grant_type=client_credentials&client_id=bf3f95cfe2694da996661edeb4853709&client_secret=5fbe0881301642ca9e147118a7cfe19f"
+            body: `grant_type=client_credentials&client_id=${id}&client_secret=${secret}`
         })
         const data = await response.json()
         return data.access_token
@@ -82,6 +88,7 @@ class SpotifyClient {
             albumIds.push(album.id)
         })
         const detailedAlbumResponse = await this.getAlbumbsByIdAsync(albumIds)
+
         const albumArray = await detailedAlbumResponse.albums
         var parsedAlbums = []
         albumArray.forEach((album) => {
@@ -101,6 +108,7 @@ class SpotifyClient {
         });
         const data = await response.json();
         const playlists = data.playlists.items;
+        
         const detailedPlaylistResponse = []
         for (const playlist of playlists) {
             const detailedPlayListItem = await this.getPlaylistByIdAsync(playlist.id)
