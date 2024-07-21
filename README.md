@@ -14,7 +14,7 @@ This webpage fetches the top 5 albums and top 5 playlists of the day in their re
 
 ### Live Webpage
 
-The webpage will be hosted on this [link](https://ctd-prework-assignment.onrender.com/#){:target="\_blank"}. Simply open it in a new tab and see it in action.
+The webpage will be hosted on this [link](https://ctd-prework-assignment.onrender.com/#){:target="\_blank"} . Simply open it in a new tab and see it in action.
 
 ### Locally
 
