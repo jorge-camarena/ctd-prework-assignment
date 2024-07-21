@@ -1,6 +1,6 @@
 # Code The Dream PreWork Assignment
 
-Here is my submission for the CTD prework assigment. I Chose to create a webpage using Spotify's API to display the top 5 albums and the top 5 playlists of the day.
+Here is my submission for the CTD prework assigment. I chose to create a webpage using Spotify's API to display the top 5 albums and the top 5 playlists of the day.
 
 ### Features
 
@@ -14,7 +14,7 @@ This webpage fetches the top 5 albums and top 5 playlists of the day in their re
 
 ### Live Webpage
 
-The webpage will be hosted on this Link. Simply open it in a new tab and see it in action.
+The webpage will be hosted on this [link](https://ctd-prework-assignment.onrender.com/#). Simply open it in a new tab and see it in action.
 
 ### Locally
 
