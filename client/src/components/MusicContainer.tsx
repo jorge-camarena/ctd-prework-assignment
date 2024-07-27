@@ -19,7 +19,12 @@ function MusicContainer({ name, owner, cover, link, tracks }: Props) {
             bsPrefix="music-container"
         >
             <a href={link} target="blank">
-                <Card.Img variant="top" src={cover} />
+                <Card.Img
+                    variant="top"
+                    src={cover}
+                    className="card-img object-fit-contain img-fluid"
+                    bsPrefix="card-img object-fit-contain rounded"
+                />
             </a>
             <Card.Body className="card-body" bsPrefix="card-body">
                 <Card.Title

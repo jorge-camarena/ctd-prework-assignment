@@ -10,6 +10,10 @@ I built this webpage using React.js and implemented a Spotify Client class in Ja
 
 This webpage fetches the top 5 albums and top 5 playlists of the day in their respective tabs. If the user clicks on the album card, they will be navigated to Spotify's webpage of the respective album or playlist. Similarly, if they click on a specific song, they will be navigated to Spotify's webpage displaying the song.
 
+### Project Structure
+
+All the React.js components I implemented can be located in /client/src/components and /client/src/pages. All the css I wrote can be found in /client/src/App.css. Lastly, all my Spotify API calls can be found in /client/src/SpotifyClient.
+
 ## How to run
 
 ### Live Webpage
