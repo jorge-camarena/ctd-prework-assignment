@@ -8,7 +8,7 @@ I built this webpage using React.js and implemented a Spotify Client class in Ja
 
 ### Functionality
 
-This webpage fetches the top 5 albums and top 5 playlists of the day in their respective tabs. If the user clicks on the album card, they will be navigated to Spotify's webpage of the respective album or playlist. Similarly, if they click on a specific song, they will be navigated to Spotify's webpage displaying the song.
+This webpage fetches the top 5 albums and top 5 playlists of the day in their respective tabs. If the user clicks on the album/playlist card, they will be navigated to Spotify's webpage of the respective album or playlist. Similarly, if they click on a specific song, they will be navigated to Spotify's webpage displaying the song.
 
 ### Project Structure
 
